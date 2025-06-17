@@ -1,4 +1,4 @@
-import { openImagePopup } from '../scripts/index.js';
+import { openImagePopup } from './index.js';
 
 function removeCard(evt) {
     evt.target.closest('.places__item').remove();

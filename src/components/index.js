@@ -1,10 +1,10 @@
 import '../pages/index.css';
 import avatar from '../images/avatar.jpg';
 
-import { enableValidation, resetValidation } from "../components/validate.js";
-import { openModal, closeModal } from "../components/modal.js";
-import { createCard } from "../components/card.js";
-import { initialCards } from "./cards.js";
+import { enableValidation, resetValidation } from "./validate.js";
+import { openModal, closeModal } from "./modal.js";
+import { createCard } from "./card.js";
+import { initialCards } from "../scripts/cards.js";
 
 const main = document.querySelector('.content');
 const placesSection = main.querySelector('.places.page__section');
