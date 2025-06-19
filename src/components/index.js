@@ -98,6 +98,7 @@ function handleProfileAvatarFormSubmit(evt) {
         .catch(err => console.error(err))
         .finally(() => {
             renderLoading(false, profileAvatarForm.querySelector('.popup__button'));
+            resetValidation(profileAvatarForm, validationSettings);
         });
 }
 
@@ -105,7 +106,9 @@ function handleProfileAvatarFormSubmit(evt) {
 function handleCardFormSubmit(evt) {
     evt.preventDefault();
 
-    renderLoading(true, cardFormElement.querySelector('.popup__button'));
+    const cardSubmitButton = cardFormElement.querySelector('.popup__button');
+
+    renderLoading(true, cardSubmitButton);
 
     const nameValue = cardNameInput.value;
     const linkValue = cardLinkInput.value;
@@ -118,7 +121,8 @@ function handleCardFormSubmit(evt) {
         })
         .catch(err => console.error(err))
         .finally(() => {
-            renderLoading(false, cardFormElement.querySelector('.popup__button'));
+            renderLoading(false, cardSubmitButton);
+            resetValidation(cardFormElement, validationSettings);
         });
 }
 
@@ -132,7 +136,6 @@ profileEditButton.addEventListener('click', () => {
 
 profilePopupCloseButton.addEventListener('click', () => {
     closeModal(profilePopup);
-    
     resetValidation(profileFormElement, validationSettings);
 });
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
@@ -158,7 +161,6 @@ profileAvatarForm.addEventListener('submit', handleProfileAvatarFormSubmit);
 
 profileAvatarCloseButton.addEventListener('click', () => {
     closeModal(profileAvatarPopup);
-    resetValidation(profileAvatarForm, validationSettings);
 });
 
 profilePopup.classList.add('popup_is-animated');

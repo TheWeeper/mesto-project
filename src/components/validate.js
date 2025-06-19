@@ -59,7 +59,7 @@ function resetValidation(formElement, settings) {
     inputList.forEach((inputElement) => {
         hideInputError(formElement, inputElement, settings);
     });
-    buttonElement.classList.remove(settings.inactiveButtonClass);
+    buttonElement.classList.add(settings.inactiveButtonClass);
 }
 
 export { enableValidation, resetValidation };
